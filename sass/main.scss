@@ -1,0 +1,487 @@
+
+
+/*------------------------------------------------------------------
+
+    [Portafolio Rosales]
+
+    Theme Name: Jade
+    Version: 1.0
+    Last change: 16/08/16
+    Developer: Rosario Rosales
+
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+
+    [TABLA DE CONTENIDOS]
+
+    1.0 VARIABLES 
+
+    2.0 MIXIN 
+ 
+    3.0 CLASES UTILITARIAS 
+
+    4.0 GENERAL
+
+    5.0 COLOR SWITCHER
+
+    6.0 INTRO SECTION
+
+    7.0 ABOUT SECTION
+
+    8.0 TEAM SECTION
+
+    9.0 ANIMATED NUMBERS SECTION
+
+    10.0 PRICING SECTION
+
+    11.0 SERVICES SECTION
+
+    12.0 TESTIMONIALS SECTION
+
+    13.0 CLIENTS SECTION
+
+    14.0 BLOG SECTION
+
+    15.0 CONTACT SECTION
+
+    16.0 FOOTER SECTION
+
+    17.0 404 / NOT FOUND SECTION
+
+    18.0 COMING SOON SECTION
+
+    19.0 MEDIA QUERIES
+
+-------------------------------------------------------------------*/
+
+
+/* ----------------------------------------------------------------- 
+
+                         1.0 FUENTE 
+      
+------------------------------------------------------------------*/
+
+@font-face{
+	font-family:'Rosales';
+	src:url(fuentes/PoiretOne-Regular.woff);
+	font-weight: normal;
+	font-style: normal;			
+}
+
+/* ----------------------------------------------------------------- 
+
+                         1.0 VARIABLES 
+      
+------------------------------------------------------------------*/
+
+$verde:#a0dfbe;
+$blanco:#fff;
+$negro:#000000;
+$rojo:#ff3c3a;
+$rosa:#ffa291;
+$plomo:#f2f2f2;
+
+@import '_portafolio.scss';
+
+/* ----------------------------------------------------------------- 
+
+                         1.0 MIXIN 
+      
+------------------------------------------------------------------*/
+
+@mixin bg($size,$repeat,$position)
+{
+background-size: $size;
+background-repeat: $repeat;
+background-position: $position;
+}
+
+@mixin absoluto($posicion:absolute)
+{
+position: $posicion;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+content: " ";
+}
+
+@mixin transparente($grosor,$tamaño,$opacidad:0.35)
+{
+color: $blanco;
+line-height: $grosor;
+text-align: center;
+font-size: $tamaño;
+mix-blend-mode: color-burn;
+background: rgba(0, 0, 0, $opacidad);
+}
+
+/* ----------------------------------------------------------------- 
+
+                         1.0 GENERAL 
+      
+------------------------------------------------------------------*/
+
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+font-family: 'Rosales';
+overflow-x: hidden;
+background: $plomo;
+}
+
+img {
+max-width: 100%; 
+}
+
+canvas {
+@include absoluto;
+z-index:1000;
+height: 100%;
+width: 100%;
+}
+
+p {
+font-size:2em;
+}
+
+h1,h2,h3,h4,h5,h6{
+  text-transform: uppercase;
+}
+
+i{
+  font-size: 50px;
+  color: $verde;
+}
+/* ----------------------------------------------------------------- 
+
+                         1.0 UTILIDADES 
+      
+------------------------------------------------------------------*/
+
+.sp {
+padding: 0 !important;
+margin: 0 !important;
+}
+
+.contenedor-video{
+  border: 1px solid red;
+}
+
+/* ----------------------------------------------------------------- 
+
+                         1.0 HEADER 
+      
+------------------------------------------------------------------*/
+
+header
+{
+position: fixed;
+text-align: center;
+width: 100%;
+-webkit-transition: background-color .5s; 
+z-index: 8;
+}
+
+header:before
+{
+@include absoluto(static);
+background: rgba(64,64,64,0.125);
+}
+
+
+#nav-wrapper
+{
+background: rgba(0,0,0,.1);
+width: 100%;
+margin-top: 3%;
+-webkit-transition: margin-left .5s;
+}
+
+#nav ul:first-child
+{
+margin: 0;
+padding: 0;
+text-align: center;
+  & > li
+  {
+  display: inline-block;
+    &:last-child
+    {
+    padding-right: 0;
+    border-right: none;
+    }
+
+  & > a {
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: .6em;
+  font-size: 1em;
+  color: $blanco;
+
+  flex: 1 1 auto;
+  padding: 1em;
+  position: relative;
+  overflow: hidden;
+  transition: .4s;
+      &:after
+      {
+      position: absolute;
+      transition: .4s;
+      content: '';
+      width: 0;
+      left: 50%;
+      bottom: 0;
+      height: 3px;
+      }
+      &:after
+      {
+      height: 100%;
+      left: -10%;
+      transform: skewX(15deg);
+      z-index: -1;
+      }
+      &:hover
+      {
+      cursor: pointer;
+      color:$negro;
+
+      }
+      &:hover:after
+      {
+      width: 120%;
+      left: 0;
+      background: $verde;
+      left: -10%;
+      }
+    }
+  }
+}
+
+/* ----------------------------------------------------------------- 
+
+                         1.0 CONTENT-WRAP 
+      
+------------------------------------------------------------------*/
+
+.content-wrap {
+  height: 100%;
+  width: 100%;
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.content::before {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* ----------------------------------------------------------------- 
+
+                         1.0 HERO 
+      
+------------------------------------------------------------------*/
+
+#hero {
+background: url('../img/bg/bg1.jpg');
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+min-width: 100%;
+height: 675px;
+width: 100%;
+display: block;  
+position: relative;
+z-index: -1;
+}
+
+.hero-banner {
+height:100%;
+color: $blanco;
+  & > a {
+    @include absoluto;
+    @include transparente(550px,230px);
+    }
+  & > p {
+    @include absoluto;
+    z-index: 1;
+    margin-top: 425px;
+    font-size: 3em;
+    color: $verde;
+    letter-spacing: 1em;
+    }
+}
+
+.hero-banner:after,.hero-banner:before {
+@include absoluto;
+}
+
+.hero-banner:after { 
+background-image: url("../img/bg/punto.png");
+height: 100%;
+}
+
+/* ----------------------------------------------------------------- 
+
+                         1.0 SLIDER-UNO 
+      
+------------------------------------------------------------------*/
+
+.vertical-slider {
+height:100%;
+color: $blanco;
+margin-top: 500px;
+   h1 > span {
+   color: $verde;
+   font-size: 2em;
+   }
+}
+
+/* ----------------------------------------------------------------- 
+
+                         1.0 ESTILO PARA BLOQUES
+      
+------------------------------------------------------------------*/
+
+.borde {
+margin:5%;
+}
+
+.borde .bloque {
+background: $plomo;
+border: 2px solid $negro;
+padding: 3%;
+}
+
+.borde h1 {
+letter-spacing: 1em; 
+}
+
+/* ----------------------------------------------------------------- 
+
+                         1.0 SOBRE MÍ 
+      
+------------------------------------------------------------------*/
+
+.sobre-mi {
+background: $verde;
+height: 350px;
+padding:100px 0;
+
+  & span {
+  font-size:40px;
+  color: $verde;
+  font-weight: bold;
+  text-transform:uppercase;
+  background: $negro;
+  padding:2%;
+  }
+}
+
+.habilidades{
+
+  @extend .sobre-mi;
+  width:100%;
+  height:auto;
+  padding:0;
+
+  .arrow-down{
+    border-top: 5px solid $negro;
+  }
+
+    & li {
+    padding:2%;
+    background: $plomo;
+    height: 150px;
+    width: 150px;
+    margin:0 0.5%;
+    overflow: hidden;
+  }
+    & h2 {
+    padding:2% 0;
+    background: $negro;
+    color: $verde;
+    letter-spacing: 1em;
+  }  
+   & img{
+    height:50%;
+    width:50%;
+   }
+    & hr {
+    border-top:3px solid $verde;
+    }   
+    & video{
+      margin-top: 3%;
+    }
+}
+
+.arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid red;
+    font-size: 0;
+    line-height: 0;
+    margin: 0 auto;
+}
+
+/* ----------------------------------------------------------------- 
+
+                         1.0 ESTILO PARA IMÁGENES 
+      
+------------------------------------------------------------------*/
+
+.transparente {
+position: relative;
+@include bg(cover,no-repeat,top);
+height:350px;
+
+  & span {
+    @include absoluto;
+    @include transparente(350px,80px,0.7);
+  }
+}
+
+/* ----------------------------------------------------------------- 
+
+                         1.0 FOOTER
+      
+------------------------------------------------------------------*/
+
+
+#footer {
+background: url('../img/footer/1.jpg');
+background-repeat: repeat-x;
+height: 250px;
+border-bottom: 20px solid $negro;
+-webkit-background-size: contain;
+-moz-background-size: contain;
+-o-background-size: contain;
+background-size: contain;
+min-width: 100%;
+width: 100%;
+display: block;  
+position: relative;
+padding-left: 25%;
+z-index: 5;
+}

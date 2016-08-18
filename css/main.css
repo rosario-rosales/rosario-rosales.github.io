@@ -1,0 +1,720 @@
+@charset "UTF-8";
+/*------------------------------------------------------------------
+
+    [Portafolio Rosales]
+
+    Theme Name: Jade
+    Version: 1.0
+    Last change: 16/08/16
+    Developer: Rosario Rosales
+
+-------------------------------------------------------------------*/
+/*------------------------------------------------------------------
+
+    [TABLA DE CONTENIDOS]
+
+    1.0 VARIABLES 
+
+    2.0 MIXIN 
+ 
+    3.0 CLASES UTILITARIAS 
+
+    4.0 GENERAL
+
+    5.0 COLOR SWITCHER
+
+    6.0 INTRO SECTION
+
+    7.0 ABOUT SECTION
+
+    8.0 TEAM SECTION
+
+    9.0 ANIMATED NUMBERS SECTION
+
+    10.0 PRICING SECTION
+
+    11.0 SERVICES SECTION
+
+    12.0 TESTIMONIALS SECTION
+
+    13.0 CLIENTS SECTION
+
+    14.0 BLOG SECTION
+
+    15.0 CONTACT SECTION
+
+    16.0 FOOTER SECTION
+
+    17.0 404 / NOT FOUND SECTION
+
+    18.0 COMING SOON SECTION
+
+    19.0 MEDIA QUERIES
+
+-------------------------------------------------------------------*/
+/* ----------------------------------------------------------------- 
+
+                         1.0 FUENTE 
+      
+------------------------------------------------------------------*/
+@font-face {
+  font-family: 'Rosales';
+  src: url(fuentes/PoiretOne-Regular.woff);
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ----------------------------------------------------------------- 
+
+                         1.0 VARIABLES 
+      
+------------------------------------------------------------------*/
+/*------------------------------------------------------------------
+
+//-     [TABLA DE CONTENIDOS]
+
+//-     1.0 GRID
+
+//-     2.0 COMÚN
+ 
+//-     3.0 ESPECIFICAR
+
+//-     4.0 BUBBA 
+
+
+//- -------------------------------------------------------------------*/
+/* ----------------------------------------------------------------- 
+
+//-                          1.0 GRID
+      
+//- ------------------------------------------------------------------*/
+.grid {
+  margin: 0;
+  width: 100%;
+  list-style: none;
+  text-align: center;
+}
+
+/* ----------------------------------------------------------------- 
+
+//-                          1.0 COMÚN
+      
+//- ------------------------------------------------------------------*/
+.grid figure {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  overflow: hidden;
+  margin: -0.135em;
+  width: 33.333%;
+  height: 200px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.grid figure img {
+  position: relative;
+  display: block;
+  min-height: 100%;
+  opacity: 0.8;
+}
+
+.grid figure figcaption {
+  padding: 2em;
+  color: #fff;
+  font-size: 1.25em;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.grid figure figcaption::before,
+.grid figure figcaption::after {
+  pointer-events: none;
+}
+
+.grid figure figcaption,
+.grid figure a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ----------------------------------------------------------------- 
+
+//-                          1.0 ESPECIFICAR
+      
+//- ------------------------------------------------------------------*/
+/* Anchor will cover the whole item by default */
+/* For some effects it will show as a button */
+.grid figure a {
+  z-index: 1000;
+  text-indent: 200%;
+  white-space: nowrap;
+  font-size: 0;
+  opacity: 0;
+}
+
+.grid figure h2 span {
+  font-weight: 100;
+  color: #a0dfbe;
+}
+
+.grid figure h2,
+.grid figure p {
+  margin: 0;
+}
+
+.grid figure p {
+  letter-spacing: 1px;
+  font-size: 1em;
+  text-transform: uppercase;
+  color: #000000;
+  background: #a0dfbe;
+}
+
+/* ----------------------------------------------------------------- 
+
+//-                          1.0 BUBBA
+      
+//- ------------------------------------------------------------------*/
+figure.effect-bubba {
+  background: #000000;
+}
+
+figure.effect-bubba:hover img {
+  display: none;
+}
+
+figure.effect-bubba figcaption::before,
+figure.effect-bubba figcaption::after {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  bottom: 30px;
+  left: 30px;
+  content: '';
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+}
+
+figure.effect-bubba figcaption::before {
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  -webkit-transform: scale(0, 1);
+  transform: scale(0, 1);
+}
+
+figure.effect-bubba figcaption::after {
+  border-right: 1px solid #fff;
+  border-left: 1px solid #fff;
+  -webkit-transform: scale(1, 0);
+  transform: scale(1, 0);
+}
+
+figure.effect-bubba h2 {
+  padding-top: 20%;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: transform 0.35s;
+  -webkit-transform: translate3d(0, -20px, 0);
+  transform: translate3d(0, -20px, 0);
+}
+
+figure.effect-bubba p {
+  padding: 10px 2.5em;
+  opacity: 0;
+}
+
+figure.effect-bubba:hover figcaption::before,
+figure.effect-bubba:hover figcaption::after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+figure.effect-bubba:hover h2 {
+  padding-top: 10%;
+}
+
+figure.effect-bubba:hover h2,
+figure.effect-bubba:hover p {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/*---------------*/
+/***** Oscar *****/
+/*---------------*/
+figure.effect-oscar {
+  background: -webkit-linear-gradient(45deg, #22682a 0%, #9b4a1b 40%, #3a342a 100%);
+  background: linear-gradient(45deg, #22682a 0%, #9b4a1b 40%, #3a342a 100%);
+}
+
+figure.effect-oscar img {
+  opacity: 0.9;
+  -webkit-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+}
+
+figure.effect-oscar figcaption {
+  padding: 3em;
+  background-color: rgba(58, 52, 42, 0.7);
+  -webkit-transition: background-color 0.35s;
+  transition: background-color 0.35s;
+}
+
+figure.effect-oscar figcaption::before {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  bottom: 30px;
+  left: 30px;
+  border: 1px solid #fff;
+  content: '';
+}
+
+figure.effect-oscar h2 {
+  margin: 20% 0 10px 0;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: transform 0.35s;
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+}
+
+figure.effect-oscar figcaption::before,
+figure.effect-oscar p {
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+figure.effect-oscar:hover h2 {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+figure.effect-oscar:hover figcaption::before,
+figure.effect-oscar:hover p {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+figure.effect-oscar:hover figcaption {
+  background-color: rgba(58, 52, 42, 0);
+}
+
+figure.effect-oscar:hover img {
+  opacity: 0.4;
+}
+
+/* ----------------------------------------------------------------- 
+
+                         1.0 MIXIN 
+      
+------------------------------------------------------------------*/
+/* ----------------------------------------------------------------- 
+
+                         1.0 GENERAL 
+      
+------------------------------------------------------------------*/
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  font-family: 'Rosales';
+  overflow-x: hidden;
+  background: #f2f2f2;
+}
+
+img {
+  max-width: 100%;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: " ";
+  z-index: 1000;
+  height: 100%;
+  width: 100%;
+}
+
+p {
+  font-size: 2em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+}
+
+i {
+  font-size: 50px;
+  color: #a0dfbe;
+}
+
+/* ----------------------------------------------------------------- 
+
+                         1.0 UTILIDADES 
+      
+------------------------------------------------------------------*/
+.sp {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.contenedor-video {
+  border: 1px solid red;
+}
+
+/* ----------------------------------------------------------------- 
+
+                         1.0 HEADER 
+      
+------------------------------------------------------------------*/
+header {
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  -webkit-transition: background-color .5s;
+  z-index: 8;
+}
+
+header:before {
+  position: static;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: " ";
+  background: rgba(64, 64, 64, 0.125);
+}
+
+#nav-wrapper {
+  background: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin-top: 3%;
+  -webkit-transition: margin-left .5s;
+}
+
+#nav ul:first-child {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+#nav ul:first-child > li {
+  display: inline-block;
+}
+
+#nav ul:first-child > li:last-child {
+  padding-right: 0;
+  border-right: none;
+}
+
+#nav ul:first-child > li > a {
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: .6em;
+  font-size: 1em;
+  color: #fff;
+  flex: 1 1 auto;
+  padding: 1em;
+  position: relative;
+  overflow: hidden;
+  transition: .4s;
+}
+
+#nav ul:first-child > li > a:after {
+  position: absolute;
+  transition: .4s;
+  content: '';
+  width: 0;
+  left: 50%;
+  bottom: 0;
+  height: 3px;
+}
+
+#nav ul:first-child > li > a:after {
+  height: 100%;
+  left: -10%;
+  transform: skewX(15deg);
+  z-index: -1;
+}
+
+#nav ul:first-child > li > a:hover {
+  cursor: pointer;
+  color: #000000;
+}
+
+#nav ul:first-child > li > a:hover:after {
+  width: 120%;
+  left: 0;
+  background: #a0dfbe;
+  left: -10%;
+}
+
+/* ----------------------------------------------------------------- 
+
+                         1.0 CONTENT-WRAP 
+      
+------------------------------------------------------------------*/
+.content-wrap {
+  height: 100%;
+  width: 100%;
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.content::before {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* ----------------------------------------------------------------- 
+
+                         1.0 HERO 
+      
+------------------------------------------------------------------*/
+#hero {
+  background: url("../img/bg/bg1.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-width: 100%;
+  height: 675px;
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: -1;
+}
+
+.hero-banner {
+  height: 100%;
+  color: #fff;
+}
+
+.hero-banner > a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: " ";
+  color: #fff;
+  line-height: 550px;
+  text-align: center;
+  font-size: 230px;
+  mix-blend-mode: color-burn;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.hero-banner > p {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: " ";
+  z-index: 1;
+  margin-top: 425px;
+  font-size: 3em;
+  color: #a0dfbe;
+  letter-spacing: 1em;
+}
+
+.hero-banner:after, .hero-banner:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: " ";
+}
+
+.hero-banner:after {
+  background-image: url("../img/bg/punto.png");
+  height: 100%;
+}
+
+/* ----------------------------------------------------------------- 
+
+                         1.0 SLIDER-UNO 
+      
+------------------------------------------------------------------*/
+.vertical-slider {
+  height: 100%;
+  color: #fff;
+  margin-top: 500px;
+}
+
+.vertical-slider h1 > span {
+  color: #a0dfbe;
+  font-size: 2em;
+}
+
+/* ----------------------------------------------------------------- 
+
+                         1.0 ESTILO PARA BLOQUES
+      
+------------------------------------------------------------------*/
+.borde {
+  margin: 5%;
+}
+
+.borde .bloque {
+  background: #f2f2f2;
+  border: 2px solid #000000;
+  padding: 3%;
+}
+
+.borde h1 {
+  letter-spacing: 1em;
+}
+
+/* ----------------------------------------------------------------- 
+
+                         1.0 SOBRE MÍ 
+      
+------------------------------------------------------------------*/
+.sobre-mi, .habilidades {
+  background: #a0dfbe;
+  height: 350px;
+  padding: 100px 0;
+}
+
+.sobre-mi span, .habilidades span {
+  font-size: 40px;
+  color: #a0dfbe;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: #000000;
+  padding: 2%;
+}
+
+.habilidades {
+  width: 100%;
+  height: auto;
+  padding: 0;
+}
+
+.habilidades .arrow-down {
+  border-top: 5px solid #000000;
+}
+
+.habilidades li {
+  padding: 2%;
+  background: #f2f2f2;
+  height: 150px;
+  width: 150px;
+  margin: 0 0.5%;
+  overflow: hidden;
+}
+
+.habilidades h2 {
+  padding: 2% 0;
+  background: #000000;
+  color: #a0dfbe;
+  letter-spacing: 1em;
+}
+
+.habilidades img {
+  height: 50%;
+  width: 50%;
+}
+
+.habilidades hr {
+  border-top: 3px solid #a0dfbe;
+}
+
+.habilidades video {
+  margin-top: 3%;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid red;
+  font-size: 0;
+  line-height: 0;
+  margin: 0 auto;
+}
+
+/* ----------------------------------------------------------------- 
+
+                         1.0 ESTILO PARA IMÁGENES 
+      
+------------------------------------------------------------------*/
+.transparente {
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  height: 350px;
+}
+
+.transparente span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: " ";
+  color: #fff;
+  line-height: 350px;
+  text-align: center;
+  font-size: 80px;
+  mix-blend-mode: color-burn;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* ----------------------------------------------------------------- 
+
+                         1.0 FOOTER
+      
+------------------------------------------------------------------*/
+#footer {
+  background: url("../img/footer/1.jpg");
+  background-repeat: repeat-x;
+  height: 250px;
+  border-bottom: 20px solid #000000;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+  min-width: 100%;
+  width: 100%;
+  display: block;
+  position: relative;
+  padding-left: 25%;
+  z-index: 5;
+}

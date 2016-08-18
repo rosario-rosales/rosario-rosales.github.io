@@ -1,0 +1,98 @@
+
+//- /*------------------------------------------------------------------
+
+//-     [Portafolio Rosales]
+
+//-     Theme Name: Jade
+//-     Version: 1.0
+//-     Last change: 04/08/16
+//-     Developer: Rosario Rosales
+
+//- -------------------------------------------------------------------*/
+
+
+
+//- /*------------------------------------------------------------------
+
+//-     [TABLA DE CONTENIDOS]
+
+//-     1.0 FRASE 
+
+//-     2.0 BLOQUE 
+ 
+//-     3.0 PORTAFOLIO
+
+//-     4.0 LATERAL 
+
+
+//- -------------------------------------------------------------------*/
+
+//- /* ----------------------------------------------------------------- 
+
+//-                          1.0 FRASE 
+      
+//- ------------------------------------------------------------------*/
+
+mixin frase(etiqueta,simple,resaltar)
+    .frase.text-center
+        .container
+            h1 &lt; #{etiqueta} &gt;
+                span=simple  
+                span.rojo=resaltar
+                &lt; #{etiqueta} &gt;
+
+//- /* ----------------------------------------------------------------- 
+
+//-                          2.0 BLOQUE 
+      
+//- ------------------------------------------------------------------*/
+
+mixin bloque(id,clase,seccion,contenido)
+    section(id='#{id}')
+        .container.wow(class='#{clase}')
+            .row
+                .borde
+                    .bloque
+                        h1.text-center
+                            b=seccion
+                        p=contenido
+                            .arrow-down
+
+//- /* ----------------------------------------------------------------- 
+
+//-                          3.0 PORTAFOLIO 
+      
+//- ------------------------------------------------------------------*/
+
+mixin portafolio(imagen,titulo,spam,descripcion,url)
+    figure.effect-bubba
+        img(src='#{imagen}')
+        figcaption
+            h2=titulo
+                span=spam
+            p=descripcion
+            a(href='#{url}')
+
+//- /* ----------------------------------------------------------------- 
+
+//-                          2.0 LATERAL 
+      
+//- ------------------------------------------------------------------*/
+                
+mixin lateral(...items)
+    each item in items
+        span= item
+
+//- /* ----------------------------------------------------------------- 
+
+//-                          2.0 HABILIDADES 
+      
+//- ------------------------------------------------------------------*/        
+
+mixin habilidad(imagen,descripcion)
+    li.text-center
+        img(src='#{imagen}')
+        p
+            b=descripcion
+        hr
+        p          
