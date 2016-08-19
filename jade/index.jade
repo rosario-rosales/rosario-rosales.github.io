@@ -3,12 +3,12 @@ html(lang="en")
 head
 	meta(charset="UTF-8")
 	title Portafolio Rosales
-	meta(http-equiv="X-UA-Compatible" content="IE=edge")
 	link(href='bootstrap/css/bootstrap.css' rel='stylesheet', type='text/css')
 	link(href='unslider/css/unslider.css' rel='stylesheet' type='text/css')
 	link(href='unslider/css/unslider-dots.css' rel='stylesheet' type='text/css')
-	link( href='css/animate.min.css' rel='stylesheet', type='text/css')
-	link( href='css/main.css' rel='stylesheet', type='text/css')
+	link(href='css/animate.min.css' rel='stylesheet', type='text/css')
+	link(href='css/main.css' rel='stylesheet', type='text/css')
+	noscript.
 	include mixin.jade
 body
 	header.hidden-xs
@@ -22,34 +22,16 @@ body
 					li
 						a(href="#proyectos") Mis proyectos
 					li
-						a(href="#contacto") Contactame
-	header.visible-xs
-		.navbar.navbar-inverse(role="banner")
-			.container
-				.navbar-header
-					button(type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse")
-						span.sr-only Toggle navigation
-						span.icon-bar
-						span.icon-bar
-						span.icon-bar
-				.collapse.navbar-collapse
-					ul.nav.navbar-nav.navbar-right
-						li.active
-							a(href="#me") Conoceme
-						li.dropdown
-							a(href="#habilidades") Mis habilidades
-						li.dropdown
-							a(href="#proyectos") Mis proyectos
-						li.dropdown
-							a(href="#contacto") Contactame
+						a(href="#contacto") Contactame					
 	.content-wrap
 		.content
 			section#hero
 				.container
 					.row
 						.hero-banner
+							canvas
 							a ROSALES
-							p.text-center ROSARIO
+							p.text-center ROSARIO					
 					.row
 						.vertical-slider.text-center
 							ul
@@ -59,6 +41,11 @@ body
 									h1 <span>Girl</span> Delevoper
 								li 
 									h1 Embajadora de <span>Laboratoria</span>
+			.left_vertical
+				+lateral('S','U','E','Ñ','A')
+			.right_vertical
+				+lateral('S','O','N','R','I','E')				
+
 			+bloque('me','fadeInRight','Un poco sobre mí','Hola, soy Rosario una coder egresada de Laboratoria, administradora bancaria de profesión y soñadora de vocación. Tengo 21 años e intento ser mejor cada día por y para mi familia, por eso continúo estudiando y capacitándome.')
 			section#slider-dos
 				.col-md-6.col-xs-6.sp
@@ -100,7 +87,7 @@ body
 								span ABUELITA
 							li.transparente(style='background-image:url("img/conoceme/3.jpg")')
 								span FAMILIA
-							li.transparente(style='background-image:url("img/conocem")')
+							li.transparente(style='background-image:url("img/conoceme/4.png")')
 								span SMILE
 							li.transparente(style='background-image:url("img/conoceme/5.jpg")')
 								span SINCERA
@@ -113,13 +100,11 @@ body
 							li.transparente(style='background-image:url("img/conoceme/9.png")')
 								span ROSARIO
 			.container
-			+bloque('habilidades','fadeInLeft','Mis habilidades','En cada trabajo que realizo pongo todo de mi parte, me gustan los desafíos y estar mejorando cada día más para el desarrollo de la empresa y mi desarrollo profesional mediante el trabajo diario.')
-				
+			+bloque('habilidades','fadeInLeft','Mis habilidades','En cada trabajo que realizo pongo todo de mi parte, me gustan los desafíos y estar mejorando cada día más para el desarrollo de la empresa y mi desarrollo profesional mediante el trabajo diario.')				
 			section
 				.habilidades.text-center
 					h2 HABILIDADES PERSONALES
-				.col-md-1.hidden-xs
-				.col-md-3.col-xs-6
+				.col-sm-3.col-sm-offset-1
 					p 
 						b Me considero :
 					ul
@@ -128,36 +113,36 @@ body
 						li
 							p Sincera
 						li
-							p Perseverante
+							p Persistente
 						li
-							p Trabajadora							
-				.col-md-4.col-xs-6
+							p Discreta
+				.col-sm-4
 					.arrow-down
 					br
 					video(width="100%" height='100%' autoplay loop preload muted)
-						source(src="video/lab.mp4" type="video/mp4")
-				.col-md-1.hidden-xs
-				.col-md-3.hidden-xs
-					p 
+						source(src="video/lab.mp4" type="video/mp4")							
+				.col-sm-3.col-sm-offset-1
+					p
 						b Me consideran :
 					ul
 						li
-							p Empatica
+							p Empática
 						li
-							p Generosa
+							p Firme
 						li
-							p Amigable
+							p Optimista
 						li
-							p Graciosa	
+							p Graciosa
+								
 			.container
 			section.text-center
 				.habilidades
 					h2 HABILIDADES TÉCNICAS
 					ul.list-inline
 						+habilidad('img/habilidades/1.png','HTML')
-						+habilidad('img/habilidades/2.jpg','CSS')
-						+habilidad('img/habilidades/3.jpg','JS')
-						+habilidad('img/habilidades/4.jpg','Jade')
+						+habilidad('img/habilidades/2.png','CSS')
+						+habilidad('img/habilidades/3.png','JS')
+						+habilidad('img/habilidades/4.png','Jade')
 						+habilidad('img/habilidades/5.jpg','Sass')
 						+habilidad('img/habilidades/6.jpg','Boostrap')
 			.container
@@ -174,13 +159,15 @@ body
 				.container.wow.fadeInLeft
 					.row
 						.borde
-							.bloque
-								h1.text-center 
+							.bloque.text-center
+								h1 
 									b Trabaja conmigo
-								p Para empezar a trabajar juntos solo debes escribirme un mensaje
+								p Para empezar a trabajar juntos solo debes escribir un mensaje.
 									.arrow-down
-								p.text-center
-									a(href='mailto:rr.rosario.rosales.gmail.com?Subject=Portafolio Rosales')
+								p
+									a(href='mailto:rr.rosario.rosales@gmail.com?Subject=Portafolio Rosales') rr.<span>rosario</span>.rosales@gmail.com
+								p
+									a(href='mailto:rr.rosario.rosales@gmail.com?Subject=Portafolio Rosales')
 										i.fa.fa-envelope
 			section#footer
 				.footer-banner
@@ -189,6 +176,7 @@ script(type='text/javascript', src='bootstrap/js/bootstrap.min.js')
 script(type='text/javascript', src='unslider/js/unslider-min.js')
 script(src="https://use.fontawesome.com/a81d940a5c.js")
 script(type='text/javascript', src='js/wow.min.js')
+script(type='text/javascript', src='js/canvas.js')
 script(type='text/javascript', src='js/main.js')
 script.
 	new WOW().init();

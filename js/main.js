@@ -11,8 +11,6 @@ slider();
 function ventana()
 {
 	// $('#home').css({'height':$(window).height()+'px'});
-	// $('.wrap').css({'height':$(window).height()+'px'});
-	// $('.hero-banner').css({'height':$(window).height()+'px'});
 
 	var flag =false;
 
@@ -34,30 +32,21 @@ function ventana()
 			$('header').css({'background-color':'transparent'});
 			$('#nav-wrapper').css({'margin-top':'3%'});
 			$('#nav ul').css({'border-bottom':'none'});
-
-
 			flag=false;
-				}
 			}
+		}
 	});
-
 }
 
 function slider()
 {
 	jQuery(document).ready(function($) {
 
-			$('.vertical-slider').unslider({
-			animation:'vertical', autoplay: true, infinite: true, arrows: false});
+		$('.vertical-slider').unslider({
+		animation:'vertical', autoplay: true, infinite: true, arrows: false});
 
-			$('.automatic-slider').unslider({
-			autoplay: true, infinite: true, arrows: false });
+		$('.automatic-slider').unslider({
+		autoplay: true, infinite: true, arrows: false });		
 
-			$('.default-slider').unslider();
-
-			$('.infinite-slider').unslider({
-			infinite: true 
-			});			
-
-		});
+	});
 }

@@ -1,12 +1,10 @@
-
-
 /*------------------------------------------------------------------
 
     [Portafolio Rosales]
 
     Theme Name: Jade
-    Version: 1.0
-    Last change: 16/08/16
+    Version: 23.0
+    Last change: 18/08/16
     Developer: Rosario Rosales
 
 -------------------------------------------------------------------*/
@@ -15,43 +13,33 @@
 
     [TABLA DE CONTENIDOS]
 
-    1.0 VARIABLES 
+    1.0 FUENTE 
 
-    2.0 MIXIN 
+    2.0 VARIABLES / IMPORT 
  
-    3.0 CLASES UTILITARIAS 
+    3.0 MIXIN 
 
     4.0 GENERAL
 
-    5.0 COLOR SWITCHER
+    5.0 UTILIDADES
 
-    6.0 INTRO SECTION
+    6.0 HEADER
 
-    7.0 ABOUT SECTION
+    7.0 CONTENT-WRAP 
 
-    8.0 TEAM SECTION
+    8.0 HERO
 
-    9.0 ANIMATED NUMBERS SECTION
+    9.0 SLIDER-UNO
 
-    10.0 PRICING SECTION
+    10.0 LETRAS VERTICALES
 
-    11.0 SERVICES SECTION
+    11.0 BLOQUES
 
-    12.0 TESTIMONIALS SECTION
+    12.0 SOBRE MÍ
 
-    13.0 CLIENTS SECTION
+    13.0 HABILIDADES
 
-    14.0 BLOG SECTION
-
-    15.0 CONTACT SECTION
-
-    16.0 FOOTER SECTION
-
-    17.0 404 / NOT FOUND SECTION
-
-    18.0 COMING SOON SECTION
-
-    19.0 MEDIA QUERIES
+    14.0 FOOTER
 
 -------------------------------------------------------------------*/
 
@@ -71,7 +59,7 @@
 
 /* ----------------------------------------------------------------- 
 
-                         1.0 VARIABLES 
+                         2.0 VARIABLES / IMPORT
       
 ------------------------------------------------------------------*/
 
@@ -86,7 +74,7 @@ $plomo:#f2f2f2;
 
 /* ----------------------------------------------------------------- 
 
-                         1.0 MIXIN 
+                         3.0 MIXIN 
       
 ------------------------------------------------------------------*/
 
@@ -119,7 +107,7 @@ background: rgba(0, 0, 0, $opacidad);
 
 /* ----------------------------------------------------------------- 
 
-                         1.0 GENERAL 
+                         4.0 GENERAL 
       
 ------------------------------------------------------------------*/
 
@@ -132,14 +120,10 @@ background: rgba(0, 0, 0, $opacidad);
   box-sizing: border-box;
 }
 
-*:focus {
-  outline: none;
-}
-
 body {
 font-family: 'Rosales';
-overflow-x: hidden;
 background: $plomo;
+overflow-x: hidden;
 }
 
 img {
@@ -148,26 +132,36 @@ max-width: 100%;
 
 canvas {
 @include absoluto;
-z-index:1000;
-height: 100%;
+z-index: 2;
+height:100%;
 width: 100%;
 }
 
-p {
-font-size:2em;
+h1,h2{
+text-transform: uppercase;
 }
 
-h1,h2,h3,h4,h5,h6{
-  text-transform: uppercase;
+h1{
+font-size:2.3em;
+}
+
+h2{
+font-size:2em;
+
+}
+
+p {
+font-size:1.8em;
 }
 
 i{
-  font-size: 50px;
-  color: $verde;
+font-size: 3em;
+color: $verde;
 }
+
 /* ----------------------------------------------------------------- 
 
-                         1.0 UTILIDADES 
+                         5.0 UTILIDADES 
       
 ------------------------------------------------------------------*/
 
@@ -176,50 +170,64 @@ padding: 0 !important;
 margin: 0 !important;
 }
 
-.contenedor-video{
-  border: 1px solid red;
+ /*  Triángulo de decoración  */
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid red;
+  font-size: 0;
+  line-height: 0;
+  margin: 0 auto;
+}
+
+ /*  Efecto de imagenes en slider-dos  */
+.transparente {
+position: relative;
+@include bg(cover,no-repeat,top);
+height:350px;
+
+  & span {
+    @include absoluto;
+    @include transparente(350px,80px,0.5);
+  }
 }
 
 /* ----------------------------------------------------------------- 
 
-                         1.0 HEADER 
+                         6.0 HEADER 
       
 ------------------------------------------------------------------*/
 
-header
-{
+header {
 position: fixed;
 text-align: center;
 width: 100%;
 -webkit-transition: background-color .5s; 
-z-index: 8;
+z-index:3;
 }
 
-header:before
-{
+header:before {
 @include absoluto(static);
 background: rgba(64,64,64,0.125);
 }
 
-
-#nav-wrapper
-{
+#nav-wrapper {
 background: rgba(0,0,0,.1);
 width: 100%;
 margin-top: 3%;
 -webkit-transition: margin-left .5s;
 }
 
-#nav ul:first-child
-{
+#nav ul:first-child {
 margin: 0;
 padding: 0;
 text-align: center;
-  & > li
-  {
+  & > li {
   display: inline-block;
-    &:last-child
-    {
+
+    &:last-child {
     padding-right: 0;
     border-right: none;
     }
@@ -237,8 +245,7 @@ text-align: center;
   position: relative;
   overflow: hidden;
   transition: .4s;
-      &:after
-      {
+      &:after {
       position: absolute;
       transition: .4s;
       content: '';
@@ -247,21 +254,17 @@ text-align: center;
       bottom: 0;
       height: 3px;
       }
-      &:after
-      {
+      &:after {
       height: 100%;
       left: -10%;
       transform: skewX(15deg);
       z-index: -1;
       }
-      &:hover
-      {
+      &:hover {
       cursor: pointer;
       color:$negro;
-
       }
-      &:hover:after
-      {
+      &:hover:after {
       width: 120%;
       left: 0;
       background: $verde;
@@ -273,7 +276,7 @@ text-align: center;
 
 /* ----------------------------------------------------------------- 
 
-                         1.0 CONTENT-WRAP 
+                         7.0 CONTENT-WRAP 
       
 ------------------------------------------------------------------*/
 
@@ -282,21 +285,9 @@ text-align: center;
   width: 100%;
 }
 
-.content {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-.content::before {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
 /* ----------------------------------------------------------------- 
 
-                         1.0 HERO 
+                         8.0 HERO 
       
 ------------------------------------------------------------------*/
 
@@ -312,6 +303,7 @@ width: 100%;
 display: block;  
 position: relative;
 z-index: -1;
+overflow-x: hidden;
 }
 
 .hero-banner {
@@ -342,7 +334,7 @@ height: 100%;
 
 /* ----------------------------------------------------------------- 
 
-                         1.0 SLIDER-UNO 
+                         9.0 SLIDER-UNO 
       
 ------------------------------------------------------------------*/
 
@@ -358,12 +350,43 @@ margin-top: 500px;
 
 /* ----------------------------------------------------------------- 
 
-                         1.0 ESTILO PARA BLOQUES
+                         10.0 LETRAS VERTICALES
+      
+------------------------------------------------------------------*/
+.vertical {
+  position: absolute;
+  bottom: calc( 50% - 250px );
+  width: 22px;
+  text-align: center;
+  z-index: 5;
+}
+
+.vertical span {
+  width: 1.5em;
+  display: inline-block;
+  font-size: 10px;
+  color: $blanco;
+  text-align: center;
+}
+
+.left_vertical {
+@extend .vertical;
+right: 0;
+}
+
+.right_vertical {
+@extend .vertical;
+left: 0;
+}
+
+/* ----------------------------------------------------------------- 
+
+                         11.0 BLOQUES
       
 ------------------------------------------------------------------*/
 
 .borde {
-margin:5%;
+margin:6%;
 }
 
 .borde .bloque {
@@ -373,12 +396,12 @@ padding: 3%;
 }
 
 .borde h1 {
-letter-spacing: 1em; 
+letter-spacing: 25px; 
 }
 
 /* ----------------------------------------------------------------- 
 
-                         1.0 SOBRE MÍ 
+                         12.0 SOBRE MÍ 
       
 ------------------------------------------------------------------*/
 
@@ -397,18 +420,19 @@ padding:100px 0;
   }
 }
 
+/* ----------------------------------------------------------------- 
+
+                         13.0 HABILIDADES
+      
+------------------------------------------------------------------*/
+
 .habilidades{
+@extend .sobre-mi;
+width:100%;
+height:auto;
+padding:0;
 
-  @extend .sobre-mi;
-  width:100%;
-  height:auto;
-  padding:0;
-
-  .arrow-down{
-    border-top: 5px solid $negro;
-  }
-
-    & li {
+  & li {
     padding:2%;
     background: $plomo;
     height: 150px;
@@ -416,72 +440,47 @@ padding:100px 0;
     margin:0 0.5%;
     overflow: hidden;
   }
-    & h2 {
-    padding:2% 0;
-    background: $negro;
-    color: $verde;
-    letter-spacing: 1em;
+
+  & h2 {
+  padding:2% 0;
+  background: $negro;
+  color: $verde;
+  letter-spacing: 1em;
   }  
-   & img{
-    height:50%;
-    width:50%;
-   }
-    & hr {
-    border-top:3px solid $verde;
-    }   
-    & video{
-      margin-top: 3%;
-    }
-}
 
-.arrow-down {
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid red;
-    font-size: 0;
-    line-height: 0;
-    margin: 0 auto;
-}
+  & img {
+  height:50%;
+  width:50%;
+  }
 
-/* ----------------------------------------------------------------- 
+  & hr {
+  border-top:3px solid $verde;
+  } 
 
-                         1.0 ESTILO PARA IMÁGENES 
-      
-------------------------------------------------------------------*/
-
-.transparente {
-position: relative;
-@include bg(cover,no-repeat,top);
-height:350px;
-
-  & span {
-    @include absoluto;
-    @include transparente(350px,80px,0.7);
+  & video{
+  margin-top: 3%;
   }
 }
 
 /* ----------------------------------------------------------------- 
 
-                         1.0 FOOTER
+                         14.0 FOOTER
       
 ------------------------------------------------------------------*/
 
+#contacto {
+& a {
+  color: $negro;
+  }
+& span {
+  color:$verde;
+  }   
+}
 
 #footer {
 background: url('../img/footer/1.jpg');
 background-repeat: repeat-x;
+background-size: contain;
 height: 250px;
 border-bottom: 20px solid $negro;
--webkit-background-size: contain;
--moz-background-size: contain;
--o-background-size: contain;
-background-size: contain;
-min-width: 100%;
-width: 100%;
-display: block;  
-position: relative;
-padding-left: 25%;
-z-index: 5;
 }

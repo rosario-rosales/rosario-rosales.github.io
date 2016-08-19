@@ -4,8 +4,8 @@
 //-     [Portafolio Rosales]
 
 //-     Theme Name: Jade
-//-     Version: 1.0
-//-     Last change: 04/08/16
+//-     Version: 2.0
+//-     Last change: 19/08/16
 //-     Developer: Rosario Rosales
 
 //- -------------------------------------------------------------------*/
@@ -22,7 +22,9 @@
  
 //-     3.0 PORTAFOLIO
 
-//-     4.0 LATERAL 
+//-     4.0 LATERAL
+
+//-     5.0 HABILIDADES 
 
 
 //- -------------------------------------------------------------------*/
@@ -75,7 +77,7 @@ mixin portafolio(imagen,titulo,spam,descripcion,url)
 
 //- /* ----------------------------------------------------------------- 
 
-//-                          2.0 LATERAL 
+//-                          4.0 LATERAL 
       
 //- ------------------------------------------------------------------*/
                 
@@ -85,7 +87,7 @@ mixin lateral(...items)
 
 //- /* ----------------------------------------------------------------- 
 
-//-                          2.0 HABILIDADES 
+//-                          5.0 HABILIDADES 
       
 //- ------------------------------------------------------------------*/        
 
@@ -94,5 +96,4 @@ mixin habilidad(imagen,descripcion)
         img(src='#{imagen}')
         p
             b=descripcion
-        hr
-        p          
+        hr          

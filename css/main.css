@@ -4,8 +4,8 @@
     [Portafolio Rosales]
 
     Theme Name: Jade
-    Version: 1.0
-    Last change: 16/08/16
+    Version: 23.0
+    Last change: 18/08/16
     Developer: Rosario Rosales
 
 -------------------------------------------------------------------*/
@@ -13,43 +13,33 @@
 
     [TABLA DE CONTENIDOS]
 
-    1.0 VARIABLES 
+    1.0 FUENTE 
 
-    2.0 MIXIN 
+    2.0 VARIABLES / IMPORT 
  
-    3.0 CLASES UTILITARIAS 
+    3.0 MIXIN 
 
     4.0 GENERAL
 
-    5.0 COLOR SWITCHER
+    5.0 UTILIDADES
 
-    6.0 INTRO SECTION
+    6.0 HEADER
 
-    7.0 ABOUT SECTION
+    7.0 CONTENT-WRAP 
 
-    8.0 TEAM SECTION
+    8.0 HERO
 
-    9.0 ANIMATED NUMBERS SECTION
+    9.0 SLIDER-UNO
 
-    10.0 PRICING SECTION
+    10.0 LETRAS VERTICALES
 
-    11.0 SERVICES SECTION
+    11.0 BLOQUES
 
-    12.0 TESTIMONIALS SECTION
+    12.0 SOBRE MÍ
 
-    13.0 CLIENTS SECTION
+    13.0 HABILIDADES
 
-    14.0 BLOG SECTION
-
-    15.0 CONTACT SECTION
-
-    16.0 FOOTER SECTION
-
-    17.0 404 / NOT FOUND SECTION
-
-    18.0 COMING SOON SECTION
-
-    19.0 MEDIA QUERIES
+    14.0 FOOTER
 
 -------------------------------------------------------------------*/
 /* ----------------------------------------------------------------- 
@@ -66,7 +56,7 @@
 
 /* ----------------------------------------------------------------- 
 
-                         1.0 VARIABLES 
+                         2.0 VARIABLES / IMPORT
       
 ------------------------------------------------------------------*/
 /*------------------------------------------------------------------
@@ -107,7 +97,7 @@
   overflow: hidden;
   margin: -0.135em;
   width: 33.333%;
-  height: 200px;
+  height: 250px;
   text-align: center;
   cursor: pointer;
 }
@@ -158,7 +148,6 @@
 }
 
 .grid figure h2 span {
-  font-weight: 100;
   color: #a0dfbe;
 }
 
@@ -216,7 +205,7 @@ figure.effect-bubba figcaption::after {
 }
 
 figure.effect-bubba h2 {
-  padding-top: 20%;
+  padding-top: 30%;
   -webkit-transition: -webkit-transform 0.35s;
   transition: transform 0.35s;
   -webkit-transform: translate3d(0, -20px, 0);
@@ -236,7 +225,7 @@ figure.effect-bubba:hover figcaption::after {
 }
 
 figure.effect-bubba:hover h2 {
-  padding-top: 10%;
+  padding-top: 20%;
 }
 
 figure.effect-bubba:hover h2,
@@ -246,82 +235,14 @@ figure.effect-bubba:hover p {
   transform: translate3d(0, 0, 0);
 }
 
-/*---------------*/
-/***** Oscar *****/
-/*---------------*/
-figure.effect-oscar {
-  background: -webkit-linear-gradient(45deg, #22682a 0%, #9b4a1b 40%, #3a342a 100%);
-  background: linear-gradient(45deg, #22682a 0%, #9b4a1b 40%, #3a342a 100%);
-}
-
-figure.effect-oscar img {
-  opacity: 0.9;
-  -webkit-transition: opacity 0.35s;
-  transition: opacity 0.35s;
-}
-
-figure.effect-oscar figcaption {
-  padding: 3em;
-  background-color: rgba(58, 52, 42, 0.7);
-  -webkit-transition: background-color 0.35s;
-  transition: background-color 0.35s;
-}
-
-figure.effect-oscar figcaption::before {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  bottom: 30px;
-  left: 30px;
-  border: 1px solid #fff;
-  content: '';
-}
-
-figure.effect-oscar h2 {
-  margin: 20% 0 10px 0;
-  -webkit-transition: -webkit-transform 0.35s;
-  transition: transform 0.35s;
-  -webkit-transform: translate3d(0, 100%, 0);
-  transform: translate3d(0, 100%, 0);
-}
-
-figure.effect-oscar figcaption::before,
-figure.effect-oscar p {
-  opacity: 0;
-  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-  transition: opacity 0.35s, transform 0.35s;
-  -webkit-transform: scale(0);
-  transform: scale(0);
-}
-
-figure.effect-oscar:hover h2 {
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
-
-figure.effect-oscar:hover figcaption::before,
-figure.effect-oscar:hover p {
-  opacity: 1;
-  -webkit-transform: scale(1);
-  transform: scale(1);
-}
-
-figure.effect-oscar:hover figcaption {
-  background-color: rgba(58, 52, 42, 0);
-}
-
-figure.effect-oscar:hover img {
-  opacity: 0.4;
-}
-
 /* ----------------------------------------------------------------- 
 
-                         1.0 MIXIN 
+                         3.0 MIXIN 
       
 ------------------------------------------------------------------*/
 /* ----------------------------------------------------------------- 
 
-                         1.0 GENERAL 
+                         4.0 GENERAL 
       
 ------------------------------------------------------------------*/
 *,
@@ -333,14 +254,10 @@ figure.effect-oscar:hover img {
   box-sizing: border-box;
 }
 
-*:focus {
-  outline: none;
-}
-
 body {
   font-family: 'Rosales';
-  overflow-x: hidden;
   background: #f2f2f2;
+  overflow-x: hidden;
 }
 
 img {
@@ -354,27 +271,35 @@ canvas {
   right: 0;
   bottom: 0;
   content: " ";
-  z-index: 1000;
+  z-index: 2;
   height: 100%;
   width: 100%;
 }
 
-p {
-  font-size: 2em;
-}
-
-h1, h2, h3, h4, h5, h6 {
+h1, h2 {
   text-transform: uppercase;
 }
 
+h1 {
+  font-size: 2.3em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+p {
+  font-size: 1.8em;
+}
+
 i {
-  font-size: 50px;
+  font-size: 3em;
   color: #a0dfbe;
 }
 
 /* ----------------------------------------------------------------- 
 
-                         1.0 UTILIDADES 
+                         5.0 UTILIDADES 
       
 ------------------------------------------------------------------*/
 .sp {
@@ -382,13 +307,45 @@ i {
   margin: 0 !important;
 }
 
-.contenedor-video {
-  border: 1px solid red;
+/*  Triángulo de decoración  */
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid red;
+  font-size: 0;
+  line-height: 0;
+  margin: 0 auto;
+}
+
+/*  Efecto de imagenes en slider-dos  */
+.transparente {
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  height: 350px;
+}
+
+.transparente span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: " ";
+  color: #fff;
+  line-height: 350px;
+  text-align: center;
+  font-size: 80px;
+  mix-blend-mode: color-burn;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 /* ----------------------------------------------------------------- 
 
-                         1.0 HEADER 
+                         6.0 HEADER 
       
 ------------------------------------------------------------------*/
 header {
@@ -396,7 +353,7 @@ header {
   text-align: center;
   width: 100%;
   -webkit-transition: background-color .5s;
-  z-index: 8;
+  z-index: 3;
 }
 
 header:before {
@@ -476,7 +433,7 @@ header:before {
 
 /* ----------------------------------------------------------------- 
 
-                         1.0 CONTENT-WRAP 
+                         7.0 CONTENT-WRAP 
       
 ------------------------------------------------------------------*/
 .content-wrap {
@@ -484,22 +441,9 @@ header:before {
   width: 100%;
 }
 
-.content {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-.content::before {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
 /* ----------------------------------------------------------------- 
 
-                         1.0 HERO 
+                         8.0 HERO 
       
 ------------------------------------------------------------------*/
 #hero {
@@ -514,6 +458,7 @@ header:before {
   display: block;
   position: relative;
   z-index: -1;
+  overflow-x: hidden;
 }
 
 .hero-banner {
@@ -566,7 +511,7 @@ header:before {
 
 /* ----------------------------------------------------------------- 
 
-                         1.0 SLIDER-UNO 
+                         9.0 SLIDER-UNO 
       
 ------------------------------------------------------------------*/
 .vertical-slider {
@@ -582,11 +527,40 @@ header:before {
 
 /* ----------------------------------------------------------------- 
 
-                         1.0 ESTILO PARA BLOQUES
+                         10.0 LETRAS VERTICALES
+      
+------------------------------------------------------------------*/
+.vertical, .left_vertical, .right_vertical {
+  position: absolute;
+  bottom: calc( 50% - 250px);
+  width: 22px;
+  text-align: center;
+  z-index: 5;
+}
+
+.vertical span, .left_vertical span, .right_vertical span {
+  width: 1.5em;
+  display: inline-block;
+  font-size: 10px;
+  color: #fff;
+  text-align: center;
+}
+
+.left_vertical {
+  right: 0;
+}
+
+.right_vertical {
+  left: 0;
+}
+
+/* ----------------------------------------------------------------- 
+
+                         11.0 BLOQUES
       
 ------------------------------------------------------------------*/
 .borde {
-  margin: 5%;
+  margin: 6%;
 }
 
 .borde .bloque {
@@ -596,12 +570,12 @@ header:before {
 }
 
 .borde h1 {
-  letter-spacing: 1em;
+  letter-spacing: 25px;
 }
 
 /* ----------------------------------------------------------------- 
 
-                         1.0 SOBRE MÍ 
+                         12.0 SOBRE MÍ 
       
 ------------------------------------------------------------------*/
 .sobre-mi, .habilidades {
@@ -619,14 +593,15 @@ header:before {
   padding: 2%;
 }
 
+/* ----------------------------------------------------------------- 
+
+                         13.0 HABILIDADES
+      
+------------------------------------------------------------------*/
 .habilidades {
   width: 100%;
   height: auto;
   padding: 0;
-}
-
-.habilidades .arrow-down {
-  border-top: 5px solid #000000;
 }
 
 .habilidades li {
@@ -658,63 +633,23 @@ header:before {
   margin-top: 3%;
 }
 
-.arrow-down {
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid red;
-  font-size: 0;
-  line-height: 0;
-  margin: 0 auto;
-}
-
 /* ----------------------------------------------------------------- 
 
-                         1.0 ESTILO PARA IMÁGENES 
+                         14.0 FOOTER
       
 ------------------------------------------------------------------*/
-.transparente {
-  position: relative;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top;
-  height: 350px;
+#contacto a {
+  color: #000000;
 }
 
-.transparente span {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  content: " ";
-  color: #fff;
-  line-height: 350px;
-  text-align: center;
-  font-size: 80px;
-  mix-blend-mode: color-burn;
-  background: rgba(0, 0, 0, 0.7);
+#contacto span {
+  color: #a0dfbe;
 }
 
-/* ----------------------------------------------------------------- 
-
-                         1.0 FOOTER
-      
-------------------------------------------------------------------*/
 #footer {
   background: url("../img/footer/1.jpg");
   background-repeat: repeat-x;
+  background-size: contain;
   height: 250px;
   border-bottom: 20px solid #000000;
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  -o-background-size: contain;
-  background-size: contain;
-  min-width: 100%;
-  width: 100%;
-  display: block;
-  position: relative;
-  padding-left: 25%;
-  z-index: 5;
 }
